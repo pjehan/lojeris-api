@@ -19,3 +19,9 @@ Create and edit .env.local file
 ```dotenv
 DATABASE_URL=mysql://db_user:db_password@127.0.0.1:3306/db_name?serverVersion=5.7
 ```
+
+Install Maker Bundle
+
+```shell script
+composer req maker
+```
