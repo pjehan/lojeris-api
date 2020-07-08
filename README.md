@@ -72,3 +72,11 @@ composer req symfony/string symfony/translation # Used for slugger
 php bin/console make:fixtures
 php bin/console doctrine:fixtures:load
 ```
+
+Install API Platform
+
+```shell script
+composer req api
+```
+
+Configure Entities...
