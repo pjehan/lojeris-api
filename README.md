@@ -2,6 +2,33 @@
 
 ## Installation
 
+Install dependencies
+
+```shell script
+composer install
+```
+
+Create end edit .env.local file
+
+```shell script
+cp .env .env.local
+vim .env.local
+```
+
+Generate the database and fixtures
+
+```shell script
+php bin/console doctrine:database:create
+php bin/console doctrine:migrations:migrate
+php bin/console doctrine:fixtures:load
+```
+
+Start the serveur
+
+```shell script
+symfony server:start
+```
+
 ## Steps to re-create the projet
 
 ```shell script
@@ -35,4 +62,13 @@ php bin/console make:entity
 php bin/console doctrine:database:create
 php bin/console make:migration
 php bin/console doctrine:migrations:migrate
+```
+
+Create fixtures
+
+```shell script
+composer req orm-fixtures
+composer req symfony/string symfony/translation # Used for slugger
+php bin/console make:fixtures
+php bin/console doctrine:fixtures:load
 ```
