@@ -43,6 +43,11 @@ class Property
     private $description;
 
     /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $picture;
+
+    /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
      */
@@ -122,6 +127,18 @@ class Property
         return $this;
     }
 
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(?string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
+    }
+
     public function getCategory(): ?Category
     {
         return $this->category;
@@ -193,4 +210,5 @@ class Property
             $this->setCreatedAt(new \DateTime());
         }
     }
+
 }
