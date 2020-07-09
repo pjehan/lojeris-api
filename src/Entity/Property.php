@@ -9,10 +9,11 @@ use App\Repository\PropertyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
- * @ApiResource
+ * @ApiResource(normalizationContext={"groups"={"property"}})
  * @ApiFilter(OrderFilter::class, properties={"created_at"}, arguments={"orderParameterName"="order"})
  * @ORM\HasLifecycleCallbacks
  */
@@ -22,53 +23,63 @@ class Property
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
+     * @Groups({"property"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
+     * @Groups({"property"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"property"})
      */
     private $surface;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"property"})
      */
     private $bedroom;
 
     /**
      * @ORM\Column(type="text")
+     * @Groups({"property"})
      */
     private $description;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
+     * @Groups({"property"})
      */
     private $picture;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"property"})
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity=District::class, inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
+     * @Groups({"property"})
      */
     private $district;
 
     /**
      * @ORM\ManyToMany(targetEntity=Feature::class, inversedBy="properties")
+     * @Groups({"property"})
      */
     private $features;
 
     /**
      * @ORM\Column(type="datetime")
+     * @Groups({"property"})
      */
     private $createdAt;
 
