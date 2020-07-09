@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use ApiPlatform\Core\Annotation\ApiProperty;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use App\Repository\PropertyRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -13,7 +14,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
- * @ApiResource(normalizationContext={"groups"={"property"}})
+ * @ApiResource(normalizationContext={"groups"={"property_group"}})
  * @ApiFilter(OrderFilter::class, properties={"created_at"}, arguments={"orderParameterName"="order"})
  * @ORM\HasLifecycleCallbacks
  */
@@ -23,63 +24,64 @@ class Property
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="decimal", precision=10, scale=2)
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $price;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $surface;
 
     /**
      * @ORM\Column(type="integer")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $bedroom;
 
     /**
      * @ORM\Column(type="text")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $description;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     * @Groups({"property"})
+     * @ORM\ManyToOne(targetEntity=MediaObject::class)
+     * @ApiProperty(iri="http://schema.org/image")
+     * @Groups({"property_group"})
      */
     private $picture;
 
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity=District::class, inversedBy="properties")
      * @ORM\JoinColumn(nullable=false)
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $district;
 
     /**
      * @ORM\ManyToMany(targetEntity=Feature::class, inversedBy="properties")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $features;
 
     /**
      * @ORM\Column(type="datetime")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $createdAt;
 
@@ -141,12 +143,12 @@ class Property
         return $this;
     }
 
-    public function getPicture(): ?string
+    public function getPicture(): ?MediaObject
     {
         return $this->picture;
     }
 
-    public function setPicture(?string $picture): self
+    public function setPicture(?MediaObject $picture): self
     {
         $this->picture = $picture;
 

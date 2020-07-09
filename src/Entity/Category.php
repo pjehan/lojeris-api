@@ -19,13 +19,13 @@ class Category
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $id;
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @Groups({"property"})
+     * @Groups({"property_group"})
      */
     private $name;
 
