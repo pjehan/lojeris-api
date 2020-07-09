@@ -23,13 +23,13 @@ php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 ```
 
-Start the serveur
+Start the server
 
 ```shell script
 symfony server:start
 ```
 
-## Steps to re-create the projet
+## Steps to re-create the project
 
 ```shell script
 symfony new lojeris-api
