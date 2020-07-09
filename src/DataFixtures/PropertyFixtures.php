@@ -52,6 +52,8 @@ class PropertyFixtures extends Fixture implements DependentFixtureInterface
         $property4->setBedroom(1);
         $property4->setDescription("Pharetra convallis posuere morbi leo urna molestie. Non enim praesent elementum facilisis leo vel fringilla. Egestas egestas fringilla phasellus faucibus scelerisque eleifend donec. Gravida rutrum quisque non tellus. Lacus sed viverra tellus in hac. Ultrices neque ornare aenean euismod elementum nisi quis eleifend. Sodales ut eu sem integer vitae justo eget magna. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum varius. Sit amet porttitor eget dolor morbi non. Orci phasellus egestas tellus rutrum tellus pellentesque. Turpis egestas pretium aenean pharetra. Eu lobortis elementum nibh tellus. At augue eget arcu dictum varius duis at. Massa tincidunt dui ut ornare lectus. Dui faucibus in ornare quam viverra orci sagittis. Pellentesque elit eget gravida cum sociis natoque penatibus. Senectus et netus et malesuada. Nulla aliquet porttitor lacus luctus accumsan tortor posuere. Leo integer malesuada nunc vel risus. Arcu dui vivamus arcu felis bibendum ut tristique et.");
         $property4->setPicture("property-04.jpg");
+        $property4->addFeature($this->getReference("terrasse"));
+        $property4->addFeature($this->getReference("cave"));
         $property4->setCreatedAt((new \DateTime())->modify("-17 day"));
         $manager->persist($property4);
 
@@ -63,6 +65,7 @@ class PropertyFixtures extends Fixture implements DependentFixtureInterface
         $property5->setBedroom(3);
         $property5->setDescription("Viverra maecenas accumsan lacus vel facilisis volutpat est. Urna condimentum mattis pellentesque id nibh tortor id. Est velit egestas dui id ornare arcu odio. Urna id volutpat lacus laoreet non curabitur gravida arcu. Ornare suspendisse sed nisi lacus sed viverra tellus. Laoreet suspendisse interdum consectetur libero id. Vitae turpis massa sed elementum tempus egestas sed. In tellus integer feugiat scelerisque varius morbi enim nunc faucibus. Dui id ornare arcu odio ut sem nulla. Risus commodo viverra maecenas accumsan lacus vel facilisis volutpat. Dictum fusce ut placerat orci nulla pellentesque dignissim enim sit. Enim nunc faucibus a pellentesque sit amet porttitor eget. Diam quis enim lobortis scelerisque fermentum dui. Sagittis orci a scelerisque purus semper.");
         $property5->setPicture("property-05.jpg");
+        $property5->addFeature($this->getReference("cave"));
         $property5->setCreatedAt((new \DateTime())->modify("-20 day"));
         $manager->persist($property5);
 
