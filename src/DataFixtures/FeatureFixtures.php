@@ -19,7 +19,7 @@ class FeatureFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $names = ["Terrasse", "Cave", "Dressing"];
+        $names = ["Terrasse", "Cave", "Dressing", "Garage"];
 
         foreach ($names as $name) {
             $feature = new Feature();

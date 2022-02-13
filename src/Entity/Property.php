@@ -14,7 +14,10 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=PropertyRepository::class)
- * @ApiResource(normalizationContext={"groups"={"property_group"}})
+ * @ApiResource(
+ *     attributes={"pagination_items_per_page"=6},
+ *     normalizationContext={"groups"={"property_group"}}
+ * )
  * @ApiFilter(OrderFilter::class, properties={"created_at"}, arguments={"orderParameterName"="order"})
  * @ORM\HasLifecycleCallbacks
  */

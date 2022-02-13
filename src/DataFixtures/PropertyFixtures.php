@@ -69,6 +69,56 @@ class PropertyFixtures extends Fixture implements DependentFixtureInterface
         $property5->setCreatedAt((new \DateTime())->modify("-20 day"));
         $manager->persist($property5);
 
+        $property6 = new Property();
+        $property6->setPrice(355000);
+        $property6->setCategory($this->getReference("appartement"));
+        $property6->setDistrict($this->getReference("sud-gare"));
+        $property6->setSurface(90);
+        $property6->setBedroom(2);
+        $property6->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.");
+        $property6->setPicture($this->getReference("photo6"));
+        $property6->addFeature($this->getReference("terrasse"));
+        $property6->addFeature($this->getReference("garage"));
+        $property6->setCreatedAt((new \DateTime())->modify("-66 day"));
+        $manager->persist($property6);
+
+        $property7 = new Property();
+        $property7->setPrice(420000);
+        $property7->setCategory($this->getReference("maison"));
+        $property7->setDistrict($this->getReference("villejean"));
+        $property7->setSurface(160);
+        $property7->setBedroom(3);
+        $property7->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.");
+        $property7->setPicture($this->getReference("photo7"));
+        $property7->addFeature($this->getReference("garage"));
+        $property7->addFeature($this->getReference("cave"));
+        $property7->addFeature($this->getReference("dressing"));
+        $property7->setCreatedAt((new \DateTime())->modify("-7 day"));
+        $manager->persist($property7);
+
+        $property8 = new Property();
+        $property8->setPrice(280000);
+        $property8->setCategory($this->getReference("appartement"));
+        $property8->setDistrict($this->getReference("villejean"));
+        $property8->setSurface(85);
+        $property8->setBedroom(2);
+        $property8->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.");
+        $property8->setPicture($this->getReference("photo8"));
+        $property8->addFeature($this->getReference("garage"));
+        $property8->setCreatedAt((new \DateTime())->modify("-57 day"));
+        $manager->persist($property8);
+
+        $property9 = new Property();
+        $property9->setPrice(180000);
+        $property9->setCategory($this->getReference("appartement"));
+        $property9->setDistrict($this->getReference("brequigny"));
+        $property9->setSurface(60);
+        $property9->setBedroom(2);
+        $property9->setDescription("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.");
+        $property9->setPicture($this->getReference("photo9"));
+        $property9->setCreatedAt((new \DateTime())->modify("-5 day"));
+        $manager->persist($property9);
+
         $manager->flush();
     }
 

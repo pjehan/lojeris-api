@@ -11,7 +11,7 @@ use Symfony\Component\Serializer\Annotation\Groups;
 
 /**
  * @ORM\Entity(repositoryClass=FeatureRepository::class)
- * @ApiResource
+ * @ApiResource(attributes={"pagination_enabled"=false})
  */
 class Feature
 {

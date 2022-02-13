@@ -12,7 +12,17 @@ class MediaObjectFixtures extends Fixture
 
     public function load(ObjectManager $manager)
     {
-        $fileNames = ["property-01.jpg", "property-02.jpg", "property-03.jpg", "property-04.jpg", "property-05.jpg"];
+        $fileNames = [
+            "property-01.jpg",
+            "property-02.jpg",
+            "property-03.jpg",
+            "property-04.jpg",
+            "property-05.jpg",
+            "property-06.jpg",
+            "property-07.jpg",
+            "property-08.jpg",
+            "property-09.jpg"
+        ];
 
         foreach ($fileNames as $key => $fileName) {
             $photo = new MediaObject();
